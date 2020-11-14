@@ -59,8 +59,38 @@
             position: absolute;
         }
         
-        div#fantasma {
+        div#fantasma1 {
             background: url('fantasma.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+        }
+        
+        div#fantasma2 {
+            background: url('fantasma2.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+        }
+        
+        div#fantasma3 {
+            background: url('fantasma3.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+        }
+        
+        div#fantasma4 {
+            background: url('fantasma4.gif');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -132,7 +162,10 @@
     <div id='world'></div>
     <div id='pacman'></div>
     <div id='cereza'></div>
-    <div id='fantasma'></div>
+    <div id='fantasma1'></div>
+    <div id='fantasma2'></div>
+    <div id='fantasma3'></div>
+    <div id='fantasma4'></div>
     <div id='contents'>
         SCORE
         <div id="score">0</div>
@@ -145,9 +178,6 @@
     <script>
         // Javascript muestra el mundo de monedas y ladrillos
         // hacer que pacman se mueva de arriba hacia abajo
-
-
-
         world0 = [
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
             [2, 0, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2],
@@ -190,11 +220,34 @@
             x: 63,
             y: 33
         };
-        var fantasma = {
-            x: 19,
-            y: 13,
+        var fantasma1 = {
+            x: 10,
+            y: 11,
             move: 0,
-            cont: 0
+            id: '1'
+
+        };
+        var fantasma2 = {
+            x: 11,
+            y: 11,
+            move: 0,
+            id: '2'
+
+        };
+
+        var fantasma3 = {
+            x: 10,
+            y: 11,
+            move: 0,
+            id: '3'
+
+        };
+        var fantasma4 = {
+            x: 12,
+            y: 11,
+            move: 0,
+            id: '4'
+
         };
 
         var score = 0;
@@ -231,14 +284,17 @@
         //DISPLAY ELEMENTS//DISPLAY ELEMENTS//DISPLAY ELEMENTS//DISPLAY ELEMENTS//DISPLAY ELEMENTS//DISPLAY ELEMENTS//DISPLAY ELEMENTS
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         displayWorld();
-        displayFantasma();
+
         displayCereza();
         displayPacman();
-        displayVidas();
+        displayVidas(fantasma1);
+        displayVidas(fantasma2);
+        displayVidas(fantasma3);
+        displayVidas(fantasma4);
         displayTime();
 
         setInterval(displayTime, 1000);
-        setInterval(moveFantasma, 100);
+
         setTimeout(displayCereza(), 10);
         // setTimeout(autoMove(), 10);
 
@@ -280,28 +336,29 @@
             }
         }
 
-        function displayFantasma() {
-            document.getElementById('fantasma').style.top = fantasma.y * 20 + ofset.y + "px";
-            document.getElementById('fantasma').style.left = fantasma.x * 20 + ofset.x + "px";
+        function displayFantasma(fantasma) {
+            document.getElementById('fantasma' + fantasma.id).style.top = fantasma.y * 20 + ofset.y + "px";
+            document.getElementById('fantasma' + fantasma.id).style.left = fantasma.x * 20 + ofset.x + "px";
         }
 
-        function displayFantasma2() {
-            document.getElementById('fantasma').style.top = fantasma.y * 20 + ofset.y + "px";
-            document.getElementById('fantasma').style.left = fantasma.x * 20 + ofset.x + "px";
-        }
+        // function displayFantasma2() {
+        //     document.getElementById('fantasma').style.top = fantasma.y * 20 + ofset.y + "px";
+        //     document.getElementById('fantasma').style.left = fantasma.x * 20 + ofset.x + "px";
+        // }
 
         function displayScore() {
             document.getElementById('score').innerHTML = score;
         }
 
-        function displayVidas() {
+        function displayVidas(fantasma) {
 
-            if (fantasma.x == pacman.x && fantasma.y == pacman.y) {
-                displayPacman();
-                displayFantasma();
+            if ((fantasma.x == pacman.x && fantasma.y == pacman.y) || (fantasma.x == pacman.x && fantasma.y == pacman.y)) {
+
+                displayFantasma(fantasma);
                 vidas -= 1;
                 pacman.x = 1;
                 pacman.y = 1;
+                displayPacman();
                 if (vidas < 0) {
                     alert("GAME OVER");
                     location.reload();
@@ -360,7 +417,10 @@
             displayCereza();
             displayWorld();
             displayPacman();
-            displayVidas();
+            displayVidas(fantasma1);
+            displayVidas(fantasma2);
+            displayVidas(fantasma3);
+            displayVidas(fantasma4);
 
         }
 
@@ -400,9 +460,87 @@
             displayCereza();
             displayWorld();
             displayPacman();
-            displayVidas();
+            displayVidas(fantasma1);
+            displayVidas(fantasma2);
+            displayVidas(fantasma3);
+            displayVidas(fantasma4);
 
         }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //FANTASMA MOVE //FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//
+        //FANTASMA MOVE //FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        setInterval(moveFantasma, 100);
+        setInterval(function() {
+            moveFantasma(fantasma1);
+        }, 100);
+
+        setInterval(function() {
+            moveFantasma(fantasma2);
+        }, 100);
+
+        setInterval(function() {
+            moveFantasma(fantasma3);
+        }, 100);
+
+        setInterval(function() {
+            moveFantasma(fantasma4);
+        }, 100);
+
+        // var fantasmas = {
+        //     x: [12, 11, 10, 12],
+        //     y: [11, 11, 11, 11],
+        //     move: [0, 0, 0, 0],
+        //     id: ['1', '2', '3', '4']
+        // };
+
+        // function fant_move() {
+        //     for (var k = 0; k < fantasma.id.length; k++) {
+        //         moveFantasma(fantasmas[k]);
+        //     }
+        // }
+
+        setInterval(function() {
+            fantmove();
+        }, 100);
+
+        function moveFantasma(fantasma) {
+            if ((fantasma.x == 10 && fantasma.y == 11) || (fantasma.x == 10 && fantasma.y == 10)) {
+                fantasma.y--;
+            } else {
+                var random = Math.floor(Math.random() * 4);
+                if ((fantasma.move == 0 && random == 1) || (fantasma.move == 1 && random == 0) || (fantasma.move == 2 && random == 3) || (fantasma.move == 3 && random == 2)) {
+                    random = Math.floor(Math.random() * 4);
+                    moveFantasma(fantasma);
+                }
+                fantasma.move = random;
+
+                if (fantasma.move == 0 && world[fantasma.y][fantasma.x + 1] != 2 && world[fantasma.y][fantasma.x + 1] != 3) {
+                    if (fantasma.y == 14 && fantasma.x + 1 == 21) {
+                        fantasma.x -= 20;
+                    }
+                    fantasma.x++;
+
+                } else if (fantasma.move == 1 && world[fantasma.y][fantasma.x - 1] != 2 && world[fantasma.y][fantasma.x - 1] != 3) {
+                    if (fantasma.y == 14 && fantasma.x == 0) {
+                        fantasma.x += 20;
+                        fantasma.x++;
+                    }
+                    fantasma.x--;
+
+                } else if (fantasma.move == 2 && world[fantasma.y + 1][fantasma.x] != 2 && world[fantasma.y + 1][fantasma.x] != 3) {
+                    fantasma.y++;
+
+                } else if (fantasma.move == 3 && world[fantasma.y - 1][fantasma.x] != 2 && world[fantasma.y - 1][fantasma.x] != 3) {
+                    fantasma.y--;
+                }
+            }
+            displayFantasma(fantasma);
+            displayVidas(fantasma);
+        }
+
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE//AUTO MOVE
@@ -446,38 +584,6 @@
         //     displayVidas();
 
         // }
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //FANTASMA MOVE //FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//
-        //FANTASMA MOVE //FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//FANTASMA MOVE//
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        function moveFantasma() {
-            if ((fantasma.x == 10 && fantasma.y == 11) || (fantasma.x == 10 && fantasma.y == 10)) {
-                fantasma.y--;
-            } else {
-                move = Math.floor(Math.random() * 4);
-                if (move == 0 && world[fantasma.y][fantasma.x + 1] != 2 && world[fantasma.y][fantasma.x + 1] != 3) {
-                    if (fantasma.y == 14 && fantasma.x + 1 == 21) {
-                        fantasma.x -= 20;
-                    }
-                    fantasma.x++;
-
-                } else if (move == 1 && world[fantasma.y][fantasma.x - 1] != 2 && world[fantasma.y][fantasma.x - 1] != 3) {
-                    if (fantasma.y == 14 && fantasma.x == 0) {
-                        fantasma.x += 20;
-                        fantasma.x++;
-                    }
-                    fantasma.x--;
-
-                } else if (move == 2 && world[fantasma.y + 1][fantasma.x] != 2 && world[fantasma.y + 1][fantasma.x] != 3) {
-                    fantasma.y++;
-
-                } else if (move == 3 && world[fantasma.y - 1][fantasma.x] != 2 && world[fantasma.y - 1][fantasma.x] != 3) {
-                    fantasma.y--;
-                }
-            }
-            displayFantasma();
-        }
     </script>
 
 </body>
