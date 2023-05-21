@@ -1,0 +1,127 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    line-height: 0px;
+    border: 0px;
+}
+
+div{
+    margin: 0px;
+    padding: 0px;
+    line-height: 0px;
+    border: 0px;  
+}
+
+body {
+    background-color: black;
+    padding: 30px 60px;
+}
+
+div.row div {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+div.brick {
+    background: radial-gradient( #0A34C0, #012391, #041241);
+}
+
+div.wall {
+    background: radial-gradient( #0A34C0 15%, black, black);
+}
+
+div.coin {
+    background: url('coin3.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 7px;
+}
+
+div#pacman {
+    background: url('pacman.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#cereza {
+    background: url('cereza.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#fantasma1 {
+    background: url('fantasma.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#fantasma2 {
+    background: url('fantasma2.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#fantasma3 {
+    background: url('fantasma3.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#fantasma4 {
+    background: url('fantasma4.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#contents div {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    width: 35px;
+    padding: 15px;
+    margin: 15px 0px 15px 0px;
+    padding-top: 15px;
+    text-align: center;
+    color: white;
+}
+
+div#contents div#time {
+    margin: 15px 0px 0px 0px;
+}
+
+div#contents {
+    border: 2px solid white;
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 515px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14PX;
+}

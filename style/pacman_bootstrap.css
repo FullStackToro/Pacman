@@ -1,0 +1,135 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    line-height: 0px;
+    border: 0px;
+}
+
+body {
+    background-color: black !important;
+    width: 440px;
+}
+
+.main{
+    display: inline-block;
+    margin: 10px;
+    width: 720px !important;
+    padding: 0px;
+    margin-top: 10px;
+    background-color: black;
+}
+
+.navbar{
+    background: linear-gradient( #35619E 20%,#60A3FF);  
+    border: 2px solid #6D41AD;  
+    border-radius: 10px;
+}
+
+.navbar img{
+    margin-left: 30px;
+}
+
+.row{
+    --bs-gutter-x: 0 !important;
+    padding-right:0 !important;
+    padding-left: 0 !important;
+}
+
+div#row div {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+div.row div.card {
+    height: auto;
+    display: inline-block;
+    margin: 10px;
+    padding: 0px;
+    line-height: 0px;
+    border: 0px; 
+    padding-bottom: 10px;
+}
+
+div.brick {
+
+    background: radial-gradient( #60A3FF, #35619E 20%, #000000 55%);
+    
+}
+
+div.wall {
+    background: radial-gradient( white 15%, #60A3FF 10%, black 60%);
+}
+
+div.coin {
+    background: url('/img/coin3.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 7px;
+}
+
+div#pacman {
+    background: url('/img/pacman.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#cereza {
+    background: url('/img/cereza.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div.fantasma{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+
+div#fantasma1 {
+    background: url('/img/fantasma.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+div#fantasma2 {
+    background: url('/img/fantasma2.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+div#fantasma3 {
+    background: url('/img/fantasma3.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    
+}
+
+div#fantasma4 {
+    background: url('/img/fantasma4.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+.footer{
+    background: linear-gradient(#60A3FF 20%, #35619E);  
+    border: 2px solid #6D41AD;  
+    border-radius: 10px;
+}
+.sello{
+    border-bottom: 1px solid #6D41AD;
+    margin-bottom: 15px;
+}
